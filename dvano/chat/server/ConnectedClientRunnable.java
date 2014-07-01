@@ -37,8 +37,6 @@ public final class ConnectedClientRunnable implements Runnable {
 
                     // если сообщение еквивалентно exit...
                     if (message.equals("exit")) {
-                        // ...послать сообщение клиенту.
-                        this.connectedClient.sendMessage("exit");
                         break;
                     }
 
