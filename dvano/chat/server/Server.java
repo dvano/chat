@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 /**
  * Класс сервера.
- * 
+ *
  * @author dvano
  */
 public final class Server implements Runnable {
@@ -18,7 +18,7 @@ public final class Server implements Runnable {
     private final ServerSocket server;
 
     /**
-     * 
+     *
      * @param port порт
      * @throws IOException исключение
      */
@@ -28,21 +28,21 @@ public final class Server implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while (true) {
+        while (true) {
+            try {
                 final Socket socket = this.server.accept(); // принятие сокета.
                 final ConnectedRunnable connectedRunnable = new ConnectedRunnable(this.clientList, socket); // экземпляр класса ConnectedRunnable
                 final Thread thread = new Thread(connectedRunnable); // экземпляр класса Thread.
                 thread.start(); // запустить поток.
+            } catch (IOException ex) {
+                Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (IOException ex) {
-            Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     /**
      * Метод для работы с консолью сервера.
-     * 
+     *
      * @throws IOException исключение
      */
     public void update() throws IOException {
@@ -69,7 +69,7 @@ public final class Server implements Runnable {
     }
 
     /**
-     * 
+     *
      * @return сокет-сервер
      */
     public ServerSocket getServerSocket() {
