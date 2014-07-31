@@ -1,4 +1,4 @@
-package dvano.chat.server;
+package dvano.net.chat.server;
 
 /**
  * Список подключаемых клиентов.
@@ -22,7 +22,7 @@ public final class ClientList {
      *
      * @param client экземпляр класса ConnectedClient
      */
-    public void add(ConnectedClient client) {
+    public void add(final ConnectedClient client) {
         for (int i = 0; i < this.clients.length; i++) {
             if (this.clients[i] == null) {
                 this.clients[i] = client;
@@ -36,7 +36,7 @@ public final class ClientList {
      *
      * @param client экземпляр класса ConnectedClient
      */
-    public void remove(ConnectedClient client) {
+    public void remove(final ConnectedClient client) {
         for (int i = 0; i < this.clients.length; i++) {
             if (this.clients[i] != null) {
                 if (this.clients[i].equals(client)) {
