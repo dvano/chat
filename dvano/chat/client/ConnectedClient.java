@@ -1,4 +1,4 @@
-package dvano.chat.client;
+package dvano.net.chat.client;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -19,7 +19,7 @@ public final class ConnectedClient {
      * @param name имя клиента
      * @throws IOException исключение
      */
-    public ConnectedClient(Socket socket, String name) throws IOException {
+    public ConnectedClient(final Socket socket, final String name) throws IOException {
         this.socketStream = new SocketStream(socket);
         this.name = name;
     }
@@ -30,7 +30,7 @@ public final class ConnectedClient {
      * @param message сообщение
      * @throws IOException исключение
      */
-    public void sendMessage(String message) throws IOException {
+    public void sendMessage(final String message) throws IOException {
         this.socketStream.getDataOutputStream().writeUTF(message);
         this.socketStream.getDataOutputStream().flush();
     }
