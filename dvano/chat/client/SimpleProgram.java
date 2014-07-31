@@ -1,4 +1,4 @@
-package dvano.chat.client;
+package dvano.net.chat.client;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -16,7 +16,7 @@ public final class SimpleProgram {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         if (args.length != 3) {
             System.exit(1);
         }
