@@ -1,4 +1,4 @@
-package dvano.chat.client;
+package dvano.net.chat.client;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -7,7 +7,7 @@ import java.net.UnknownHostException;
 
 /**
  * Класс Client.
- * 
+ *
  * @author dvano
  */
 public final class Client {
@@ -16,14 +16,14 @@ public final class Client {
     private final ConnectedClientRunnable connectedClientRunnable;
 
     /**
-     * 
+     *
      * @param name имя клиента
      * @param ip IP-адрес сервера
      * @param port порт сервера
      * @throws UnknownHostException исключение
      * @throws IOException исключение
      */
-    public Client(String name, String ip, int port) throws UnknownHostException, IOException {
+    public Client(final String name, final String ip, int port) throws UnknownHostException, IOException {
         this.socket = new Socket(InetAddress.getByName(ip), port);
         this.connectedClientRunnable = new ConnectedClientRunnable(new ConnectedClient(this.socket, name));
     }
@@ -39,7 +39,7 @@ public final class Client {
     }
 
     /**
-     * 
+     *
      * @return сокет
      */
     public Socket getSocket() {
