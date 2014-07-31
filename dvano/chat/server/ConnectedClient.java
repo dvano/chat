@@ -1,4 +1,4 @@
-package dvano.chat.server;
+package dvano.net.chat.server;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -19,7 +19,7 @@ public final class ConnectedClient {
      * @param name имя клиента
      * @throws IOException исключение
      */
-    public ConnectedClient(Socket socket, String name) throws IOException {
+    public ConnectedClient(final Socket socket, final String name) throws IOException {
         this.socketStream = new SocketStream(socket);
         this.name = name;
     }
@@ -30,7 +30,7 @@ public final class ConnectedClient {
      * @param message сообщение
      * @throws IOException исключение
      */
-    public void sendMessage(String message) throws IOException {
+    public void sendMessage(final String message) throws IOException {
         this.socketStream.getDataOutputStream().writeUTF(message);
         this.socketStream.getDataOutputStream().flush();
     }
@@ -42,7 +42,7 @@ public final class ConnectedClient {
      * @param message сообщение
      * @throws IOException исключение
      */
-    public void sendMessageAll(ClientList clientList, String message) throws IOException {
+    public void sendMessageAll(final ClientList clientList, final String message) throws IOException {
         for (int i = 0; i < clientList.getClients().length; i++) {
             if (clientList.getClients()[i] != null) {
                 clientList.getClients()[i].sendMessage(message);
@@ -58,7 +58,7 @@ public final class ConnectedClient {
      * @param clientList экземпляр класса ClientList
      * @throws IOException исключение
      */
-    public void exit(ClientList clientList) throws IOException {
+    public void exit(final ClientList clientList) throws IOException {
         this.sendMessage("exit");
 
         this.socketStream.close();
