@@ -1,4 +1,4 @@
-package dvano.chat.server;
+package dvano.net.chat.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
