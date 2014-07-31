@@ -1,4 +1,4 @@
-package dvano.chat.server;
+package dvano.net.chat.server;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -20,7 +20,7 @@ public final class ConnectedRunnable implements Runnable {
      * @param clientList экземпляр класса ClientList
      * @param socket экземпляр класса Socket
      */
-    public ConnectedRunnable(ClientList clientList, Socket socket) {
+    public ConnectedRunnable(final ClientList clientList, final Socket socket) {
         this.clientList = clientList;
         this.socket = socket;
     }
