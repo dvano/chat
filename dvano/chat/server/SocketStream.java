@@ -1,4 +1,4 @@
-package dvano.chat.server;
+package dvano.net.chat.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -21,7 +21,7 @@ public final class SocketStream {
      * @param socket экземпляр класса Socket
      * @throws IOException
      */
-    public SocketStream(Socket socket) throws IOException {
+    public SocketStream(final Socket socket) throws IOException {
         this.socket = socket;
         this.dataInputStream = new DataInputStream(this.socket.getInputStream());
         this.dataOutputStream = new DataOutputStream(this.socket.getOutputStream());
