@@ -1,4 +1,4 @@
-package dvano.chat.client;
+package dvano.net.chat.client;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ public final class ConnectedClientRunnable implements Runnable {
      *
      * @param connectedClient экземпляр класса ConnectedClient
      */
-    public ConnectedClientRunnable(ConnectedClient connectedClient) {
+    public ConnectedClientRunnable(final ConnectedClient connectedClient) {
         this.connectedClient = connectedClient;
     }
 
